@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everyday Love — Product Page Optimizada | Propuesta Uconex</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        edl: {
+          cream: '#F5EDE3',
+          beige: '#E8DACE',
+          sand: '#D4C4B0',
+          terracotta: '#B5522A',
+          'terracotta-dark': '#8C3D1E',
+          'terracotta-light': '#D4764A',
+          warm: '#FAF6F1',
+          dark: '#2C1E14',
+          muted: '#8B7B6B',
+        }
+      },
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        body: ['DM Sans', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #FAF6F1; color: #2C1E14; }
+  
+  .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+  .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+  .slide-in-left { animation: slideInLeft 0.6s ease-out forwards; opacity: 0; }
+  
+  @keyframes fadeIn { to { opacity: 1; } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+  .stagger-7 { animation-delay: 0.7s; }
+  
+  .product-img { 
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .product-img:hover { transform: scale(1.03); }
+  
+  .cta-btn {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(181, 82, 42, 0.3); }
+  .cta-btn:hover::after { opacity: 1; }
+  
+  .benefit-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .benefit-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(44, 30, 20, 0.08); }
+  
+  .review-card {
+    transition: all 0.3s ease;
+  }
+  .review-card:hover { box-shadow: 0 4px 16px rgba(44, 30, 20, 0.06); }
+  
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  
+  .thumb-active { border: 2px solid #B5522A !important; }
+  
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.015;
+    z-index: 999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+ 
+  .scroll-indicator {
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+</style>
+</head>
+<body>
+ 
+<div class="grain-overlay"></div>
+ 
+<!-- ==================== UCONEX PROPOSAL HEADER ==================== -->
+<div class="bg-edl-dark text-white py-3 px-4 text-center fade-in">
+  <div class="max-w-4xl mx-auto flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-2 h-2 rounded-full bg-edl-terracotta-light animate-pulse"></div>
+      <span class="text-xs font-medium tracking-wider uppercase opacity-80">Propuesta de optimización</span>
+    </div>
+    <span class="text-xs opacity-50 font-body">Uconex × Everyday Love</span>
+  </div>
+</div>
+ 
+<!-- ==================== ANNOUNCEMENT BAR ==================== -->
+<div class="bg-edl-terracotta text-white py-2.5 text-center fade-in stagger-1">
+  <p class="text-xs font-medium tracking-wide">🚚 ENVÍO GRATIS en compras superiores a $179.900 · Paga con Nequi, PSE o tarjeta</p>
+</div>
+ 
+<!-- ==================== NAVBAR ==================== -->
+<nav class="bg-white/80 backdrop-blur-md border-b border-edl-beige/50 sticky top-0 z-50 fade-in stagger-2">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="font-display text-2xl text-edl-terracotta-dark italic">everyday love</div>
+    <div class="hidden md:flex items-center gap-8 text-sm text-edl-muted font-medium">
+      <a href="#" class="hover:text-edl-terracotta transition-colors">Productos</a>
+      <a href="#" class="hover:text-edl-terracotta transition-colors">Kits</a>
+      <a href="#" class="hover:text-edl-terracotta transition-colors">Tipo de pelo</a>
+      <a href="#" class="text-edl-terracotta">Ofertas</a>
+      <a href="#" class="hover:text-edl-terracotta transition-colors">Nosotros</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <svg class="w-5 h-5 text-edl-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <div class="relative">
+        <svg class="w-5 h-5 text-edl-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="absolute -top-1.5 -right-1.5 bg-edl-terracotta text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-semibold">2</span>
+      </div>
+    </div>
+  </div>
+</nav>
+ 
+<!-- ==================== BREADCRUMB ==================== -->
+<div class="max-w-6xl mx-auto px-6 py-3 fade-in stagger-2">
+  <div class="flex items-center gap-2 text-xs text-edl-muted">
+    <a href="#" class="hover:text-edl-terracotta transition-colors">Inicio</a>
+    <span>/</span>
+    <a href="#" class="hover:text-edl-terracotta transition-colors">Kits</a>
+    <span>/</span>
+    <span class="text-edl-dark font-medium">Kit Wavy Edition</span>
+  </div>
+</div>
+ 
+<!-- ==================== SECTION 1: HERO — ABOVE THE FOLD ==================== -->
+<section class="max-w-6xl mx-auto px-6 pb-16">
+  
+  <!-- Section label for presentation -->
+  <div class="mb-4 fade-in stagger-2">
+    <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 1 — Above the fold</span>
+  </div>
+ 
+  <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
+    
+    <!-- LEFT: Product Gallery -->
+    <div class="fade-in-up stagger-3">
+      <!-- Main Image -->
+      <div class="relative bg-gradient-to-br from-edl-cream to-edl-beige/40 rounded-2xl overflow-hidden mb-4 aspect-square flex items-center justify-center">
+        <img src="product.png" alt="Leave In Wavy - Everyday Love" class="product-img w-[75%] h-auto drop-shadow-xl">
+        <!-- Discount badge -->
+        <div class="absolute top-4 left-4 bg-edl-terracotta text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-lg">
+          -15% HOY
+        </div>
+        <!-- Best seller badge -->
+        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-edl-dark text-[10px] font-semibold px-3 py-1.5 rounded-lg shadow-sm tracking-wider uppercase">
+          ★ Best seller
+        </div>
+      </div>
+      
+      <!-- Thumbnails -->
+      <div class="grid grid-cols-4 gap-3">
+        <div class="thumb-active rounded-xl overflow-hidden bg-edl-cream aspect-square flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
+          <img src="product.png" alt="" class="w-[80%] h-auto">
+        </div>
+        <div class="border-2 border-transparent rounded-xl overflow-hidden bg-edl-cream aspect-square flex items-center justify-center cursor-pointer hover:border-edl-sand transition-all">
+          <div class="text-center px-2">
+            <div class="text-[10px] text-edl-muted font-medium">Shampoo</div>
+            <div class="text-[9px] text-edl-muted/60">300ml</div>
+          </div>
+        </div>
+        <div class="border-2 border-transparent rounded-xl overflow-hidden bg-edl-cream aspect-square flex items-center justify-center cursor-pointer hover:border-edl-sand transition-all">
+          <div class="text-center px-2">
+            <div class="text-[10px] text-edl-muted font-medium">Acondicionador</div>
+            <div class="text-[9px] text-edl-muted/60">300ml</div>
+          </div>
+        </div>
+        <div class="border-2 border-transparent rounded-xl overflow-hidden bg-edl-cream aspect-square flex items-center justify-center cursor-pointer hover:border-edl-sand transition-all relative">
+          <div class="text-center px-2">
+            <div class="text-[10px] text-edl-muted font-medium">Video UGC</div>
+            <div class="text-[9px] text-edl-muted/60">▶ 0:32</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- RIGHT: Product Info -->
+    <div class="fade-in-up stagger-4">
+      
+      <!-- Reviews summary -->
+      <div class="flex items-center gap-2 mb-3">
+        <div class="flex text-edl-terracotta-light text-sm">★★★★★</div>
+        <span class="text-sm text-edl-terracotta font-medium underline underline-offset-2 cursor-pointer hover:text-edl-terracotta-dark transition-colors">127 reseñas</span>
+        <span class="text-xs text-edl-muted ml-1">· +2.400 vendidos</span>
+      </div>
+      
+      <!-- Title -->
+      <h1 class="font-display text-3xl lg:text-4xl text-edl-dark mb-2 leading-tight">Kit Wavy Edition</h1>
+      <p class="text-edl-muted text-base mb-5 font-light">Rutina completa de hidratación y definición para rizos y ondas reales.</p>
+      
+      <!-- Price block -->
+      <div class="bg-white rounded-2xl border border-edl-beige/60 p-5 mb-5 shadow-sm">
+        <div class="flex items-baseline gap-3 mb-1">
+          <span class="text-3xl font-semibold text-edl-dark">$164.700</span>
+          <span class="text-lg text-edl-muted line-through">$194.100</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="bg-red-50 text-red-600 text-xs font-semibold px-2.5 py-1 rounded-md">Ahorras $29.400</span>
+          <span class="text-xs text-edl-muted">· IVA incluido</span>
+        </div>
+      </div>
+      
+      <!-- Kit contents -->
+      <div class="bg-white rounded-2xl border border-edl-beige/60 p-5 mb-5">
+        <p class="text-xs font-semibold text-edl-muted tracking-wider uppercase mb-3">Incluye en tu kit:</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-edl-cream flex items-center justify-center flex-shrink-0">
+              <span class="text-sm">🧴</span>
+            </div>
+            <div>
+              <span class="text-sm font-medium text-edl-dark">Shampoo Wavy</span>
+              <span class="text-xs text-edl-muted ml-1">· 300ml</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-edl-cream flex items-center justify-center flex-shrink-0">
+              <span class="text-sm">💧</span>
+            </div>
+            <div>
+              <span class="text-sm font-medium text-edl-dark">Acondicionador Wavy</span>
+              <span class="text-xs text-edl-muted ml-1">· 300ml</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-edl-cream flex items-center justify-center flex-shrink-0">
+              <span class="text-sm">✨</span>
+            </div>
+            <div>
+              <span class="text-sm font-medium text-edl-dark">Leave-In Wavy</span>
+              <span class="text-xs text-edl-muted ml-1">· 350ml</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA -->
+      <button class="cta-btn w-full bg-edl-terracotta hover:bg-edl-terracotta-dark text-white font-semibold py-4 rounded-xl text-base tracking-wide mb-3">
+        Agregar al carrito — $164.700
+      </button>
+      
+      <!-- Secondary CTA -->
+      <button class="w-full border-2 border-edl-dark text-edl-dark font-medium py-3.5 rounded-xl text-sm hover:bg-edl-dark hover:text-white transition-all mb-5">
+        Comprar ahora
+      </button>
+      
+      <!-- Trust signals -->
+      <div class="flex items-center justify-center gap-6 text-xs text-edl-muted">
+        <div class="flex items-center gap-1.5">
+          <span>🚚</span>
+          <span>Envío gratis +$179.900</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span>🔒</span>
+          <span>Pago 100% seguro</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span>↩️</span>
+          <span>30 días devolución</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 2: TRUST BAR ==================== -->
+<section class="border-y border-edl-beige/50 bg-white py-8">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="mb-4">
+      <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 2 — Barra de confianza</span>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-2 rounded-full bg-edl-cream flex items-center justify-center">
+          <span class="text-xl">🧴</span>
+        </div>
+        <p class="text-sm font-semibold text-edl-dark">Sin sulfatos</p>
+        <p class="text-xs text-edl-muted">Ni parabenos ni sales</p>
+      </div>
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-2 rounded-full bg-edl-cream flex items-center justify-center">
+          <span class="text-xl">🐰</span>
+        </div>
+        <p class="text-sm font-semibold text-edl-dark">Cruelty free</p>
+        <p class="text-xs text-edl-muted">No testado en animales</p>
+      </div>
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-2 rounded-full bg-edl-cream flex items-center justify-center">
+          <span class="text-xl">🇨🇴</span>
+        </div>
+        <p class="text-sm font-semibold text-edl-dark">Hecho en Colombia</p>
+        <p class="text-xs text-edl-muted">Con ingredientes naturales</p>
+      </div>
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-2 rounded-full bg-edl-cream flex items-center justify-center">
+          <span class="text-xl">💳</span>
+        </div>
+        <p class="text-sm font-semibold text-edl-dark">Múltiples pagos</p>
+        <p class="text-xs text-edl-muted">Nequi, PSE, tarjeta y más</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 3: BENEFITS ==================== -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  
+  <div class="mb-4">
+    <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 3 — Beneficios visibles (no colapsados)</span>
+  </div>
+  
+  <div class="text-center mb-10">
+    <h2 class="font-display text-2xl md:text-3xl text-edl-dark mb-3">¿Por qué elegir la línea Wavy?</h2>
+    <p class="text-edl-muted text-sm max-w-md mx-auto">Formulada con ingredientes naturales que respetan y potencian la estructura natural de tus rizos y ondas.</p>
+  </div>
+  
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="benefit-card bg-white rounded-2xl p-6 border border-edl-beige/40">
+      <div class="w-10 h-10 rounded-xl bg-edl-cream flex items-center justify-center mb-4">
+        <span class="text-lg">💧</span>
+      </div>
+      <h3 class="font-semibold text-edl-dark mb-1.5">Hidratación profunda</h3>
+      <p class="text-xs text-edl-muted leading-relaxed">Aloe vera + aceite de coco nutren desde la raíz hasta las puntas sin apelmazar.</p>
+    </div>
+    <div class="benefit-card bg-white rounded-2xl p-6 border border-edl-beige/40">
+      <div class="w-10 h-10 rounded-xl bg-edl-cream flex items-center justify-center mb-4">
+        <span class="text-lg">🌀</span>
+      </div>
+      <h3 class="font-semibold text-edl-dark mb-1.5">Definición real</h3>
+      <p class="text-xs text-edl-muted leading-relaxed">El leave-in define rizos y ondas sin residuo, con técnica scrunch incluida.</p>
+    </div>
+    <div class="benefit-card bg-white rounded-2xl p-6 border border-edl-beige/40">
+      <div class="w-10 h-10 rounded-xl bg-edl-cream flex items-center justify-center mb-4">
+        <span class="text-lg">✋</span>
+      </div>
+      <h3 class="font-semibold text-edl-dark mb-1.5">Control de frizz</h3>
+      <p class="text-xs text-edl-muted leading-relaxed">Extracto de lino sella la cutícula y controla el encrespamiento todo el día.</p>
+    </div>
+    <div class="benefit-card bg-white rounded-2xl p-6 border border-edl-beige/40">
+      <div class="w-10 h-10 rounded-xl bg-edl-cream flex items-center justify-center mb-4">
+        <span class="text-lg">💪</span>
+      </div>
+      <h3 class="font-semibold text-edl-dark mb-1.5">Fortalece y anti-caída</h3>
+      <p class="text-xs text-edl-muted leading-relaxed">Reduce la caída del cabello y fortalece desde la primera aplicación.</p>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 4: HOW TO USE — ROUTINE ==================== -->
+<section class="bg-white py-16 border-y border-edl-beige/50">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="mb-4">
+      <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 4 — Rutina paso a paso</span>
+    </div>
+    
+    <div class="text-center mb-12">
+      <h2 class="font-display text-2xl md:text-3xl text-edl-dark mb-3">Tu rutina en 3 pasos</h2>
+      <p class="text-edl-muted text-sm">Así de simple es cuidar tus rizos y ondas.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      
+      <!-- Step 1 -->
+      <div class="text-center relative">
+        <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-edl-cream to-edl-beige flex items-center justify-center shadow-sm">
+          <span class="font-display text-2xl text-edl-terracotta">1</span>
+        </div>
+        <h3 class="font-semibold text-edl-dark text-base mb-2">Shampoo Wavy</h3>
+        <p class="text-xs text-edl-muted leading-relaxed px-2">Aplica sobre el cuero cabelludo húmedo y masajea suavemente. Enjuaga con abundante agua.</p>
+        <!-- Arrow -->
+        <div class="hidden md:block absolute top-8 -right-4 text-edl-sand text-2xl">→</div>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="text-center relative">
+        <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-edl-cream to-edl-beige flex items-center justify-center shadow-sm">
+          <span class="font-display text-2xl text-edl-terracotta">2</span>
+        </div>
+        <h3 class="font-semibold text-edl-dark text-base mb-2">Acondicionador Wavy</h3>
+        <p class="text-xs text-edl-muted leading-relaxed px-2">De medios a puntas. Déjalo actuar 3-5 min. Desenreda con los dedos y enjuaga.</p>
+        <!-- Arrow -->
+        <div class="hidden md:block absolute top-8 -right-4 text-edl-sand text-2xl">→</div>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="text-center">
+        <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-edl-terracotta/20 to-edl-terracotta/10 flex items-center justify-center shadow-sm">
+          <span class="font-display text-2xl text-edl-terracotta">3</span>
+        </div>
+        <h3 class="font-semibold text-edl-dark text-base mb-2">Leave-In Wavy</h3>
+        <p class="text-xs text-edl-muted leading-relaxed px-2">Aplica en cabello húmedo o seco. Técnica scrunch. <strong class="text-edl-terracotta">No enjuagar.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 5: INGREDIENTS ==================== -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  
+  <div class="mb-4">
+    <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 5 — Ingredientes destacados</span>
+  </div>
+  
+  <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    <div class="bg-white rounded-2xl p-6 border border-edl-beige/40 text-center">
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-green-50 flex items-center justify-center text-2xl">🌿</div>
+      <h3 class="font-semibold text-edl-dark mb-1">Aloe Vera</h3>
+      <p class="text-xs text-edl-muted leading-relaxed">Hidrata, calma el cuero cabelludo y aporta brillo natural sin residuos.</p>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-edl-beige/40 text-center">
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-amber-50 flex items-center justify-center text-2xl">🥥</div>
+      <h3 class="font-semibold text-edl-dark mb-1">Aceite de Coco</h3>
+      <p class="text-xs text-edl-muted leading-relaxed">Nutre en profundidad, sella la cutícula y previene el quiebre del cabello.</p>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-edl-beige/40 text-center">
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-yellow-50 flex items-center justify-center text-2xl">🌾</div>
+      <h3 class="font-semibold text-edl-dark mb-1">Extracto de Lino</h3>
+      <p class="text-xs text-edl-muted leading-relaxed">Define rizos, controla el frizz y aporta suavidad con efecto anti-caída.</p>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 6: SOCIAL PROOF / REVIEWS ==================== -->
+<section class="bg-edl-cream/50 py-16 border-y border-edl-beige/50">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="mb-4">
+      <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 6 — Social proof / Reseñas</span>
+    </div>
+    
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4">
+      <div>
+        <h2 class="font-display text-2xl md:text-3xl text-edl-dark mb-1">Lo que dicen nuestras chicas</h2>
+        <p class="text-edl-muted text-sm">+2.400 unidades vendidas del Kit Wavy Edition</p>
+      </div>
+      <div class="flex items-center gap-3 bg-white rounded-xl px-5 py-3 border border-edl-beige/50">
+        <span class="text-3xl font-semibold text-edl-dark">4.8</span>
+        <div>
+          <div class="text-edl-terracotta-light text-sm">★★★★★</div>
+          <span class="text-xs text-edl-muted">127 reseñas verificadas</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="review-card bg-white rounded-2xl p-5 border border-edl-beige/30">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-edl-terracotta/10 flex items-center justify-center text-xs font-semibold text-edl-terracotta">CM</div>
+            <div>
+              <p class="text-sm font-medium text-edl-dark">Carolina M.</p>
+              <p class="text-[10px] text-edl-muted">Bogotá · Compra verificada</p>
+            </div>
+          </div>
+          <span class="text-edl-terracotta-light text-xs">★★★★★</span>
+        </div>
+        <p class="text-sm text-edl-dark/80 leading-relaxed">"Mis rizos nunca habían quedado tan definidos. El leave-in es una locura, no pesa nada y huele increíble."</p>
+      </div>
+      
+      <div class="review-card bg-white rounded-2xl p-5 border border-edl-beige/30">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-xs font-semibold text-green-700">VP</div>
+            <div>
+              <p class="text-sm font-medium text-edl-dark">Valentina P.</p>
+              <p class="text-[10px] text-edl-muted">Medellín · Compra verificada</p>
+            </div>
+          </div>
+          <span class="text-edl-terracotta-light text-xs">★★★★★</span>
+        </div>
+        <p class="text-sm text-edl-dark/80 leading-relaxed">"Lo mejor es que no tiene sulfatos. Mi pelo ondulado lo agradece. Ya van 3 meses usándolo y no lo cambio."</p>
+      </div>
+      
+      <div class="review-card bg-white rounded-2xl p-5 border border-edl-beige/30">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-purple-100 flex items-center justify-center text-xs font-semibold text-purple-700">LS</div>
+            <div>
+              <p class="text-sm font-medium text-edl-dark">Laura S.</p>
+              <p class="text-[10px] text-edl-muted">Cali · Compra verificada</p>
+            </div>
+          </div>
+          <span class="text-edl-terracotta-light text-xs">★★★★★</span>
+        </div>
+        <p class="text-sm text-edl-dark/80 leading-relaxed">"Le regalé el kit a mi hermana y ahora las dos lo usamos. El shampoo rinde muchísimo, llevamos casi 2 meses."</p>
+      </div>
+    </div>
+    
+    <div class="text-center mt-8">
+      <button class="text-sm text-edl-terracotta font-medium underline underline-offset-4 hover:text-edl-terracotta-dark transition-colors">Ver todas las 127 reseñas →</button>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 7: CROSS-SELL ==================== -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  
+  <div class="mb-4">
+    <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 7 — Cross-sell real (no placeholders)</span>
+  </div>
+  
+  <h2 class="font-display text-2xl md:text-3xl text-edl-dark mb-2">Completa tu rutina</h2>
+  <p class="text-edl-muted text-sm mb-8">Productos que se complementan perfecto con tu Kit Wavy.</p>
+  
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="group cursor-pointer">
+      <div class="bg-edl-cream rounded-2xl aspect-square flex items-center justify-center mb-3 overflow-hidden">
+        <img src="product.png" alt="" class="w-[65%] h-auto group-hover:scale-105 transition-transform duration-500">
+      </div>
+      <p class="text-sm font-medium text-edl-dark group-hover:text-edl-terracotta transition-colors">Óleo Capilar Miracle</p>
+      <p class="text-xs text-edl-muted mt-0.5">$54.900</p>
+    </div>
+    <div class="group cursor-pointer">
+      <div class="bg-edl-cream rounded-2xl aspect-square flex items-center justify-center mb-3 overflow-hidden">
+        <div class="text-center">
+          <div class="text-3xl mb-1">🪮</div>
+          <div class="text-[10px] text-edl-muted">Cepillo</div>
+        </div>
+      </div>
+      <p class="text-sm font-medium text-edl-dark group-hover:text-edl-terracotta transition-colors">Cepillo para rizos</p>
+      <p class="text-xs text-edl-muted mt-0.5">$29.900</p>
+    </div>
+    <div class="group cursor-pointer">
+      <div class="bg-edl-cream rounded-2xl aspect-square flex items-center justify-center mb-3 overflow-hidden">
+        <div class="text-center">
+          <div class="text-3xl mb-1">🌀</div>
+          <div class="text-[10px] text-edl-muted">Difusor</div>
+        </div>
+      </div>
+      <p class="text-sm font-medium text-edl-dark group-hover:text-edl-terracotta transition-colors">Difusor EDL</p>
+      <p class="text-xs text-edl-muted mt-0.5">$39.900</p>
+    </div>
+    <div class="group cursor-pointer">
+      <div class="bg-edl-cream rounded-2xl aspect-square flex items-center justify-center mb-3 overflow-hidden relative">
+        <img src="product.png" alt="" class="w-[65%] h-auto group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute top-3 right-3 bg-edl-terracotta text-white text-[9px] font-semibold px-2 py-1 rounded">-20%</div>
+      </div>
+      <p class="text-sm font-medium text-edl-dark group-hover:text-edl-terracotta transition-colors">Termoprotector Miracle</p>
+      <p class="text-xs text-edl-muted mt-0.5"><span class="line-through">$54.900</span> <span class="text-edl-terracotta font-medium">$43.920</span></p>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 8: FAQ ==================== -->
+<section class="bg-white py-16 border-y border-edl-beige/50">
+  <div class="max-w-3xl mx-auto px-6">
+    
+    <div class="mb-4">
+      <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 8 — FAQ (reduce objeciones)</span>
+    </div>
+    
+    <h2 class="font-display text-2xl md:text-3xl text-edl-dark mb-2">Preguntas frecuentes</h2>
+    <p class="text-edl-muted text-sm mb-8">Todo lo que necesitas saber antes de comprar.</p>
+    
+    <div class="space-y-3" id="faq-container">
+      <div class="faq-item border border-edl-beige/50 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-edl-cream/30 transition-colors">
+          <span class="text-sm font-medium text-edl-dark">¿Sirve para pelo liso?</span>
+          <span class="faq-icon text-edl-muted transition-transform duration-300 text-lg">+</span>
+        </button>
+        <div class="faq-answer hidden px-5 pb-4">
+          <p class="text-sm text-edl-muted leading-relaxed">Está formulado especialmente para rizos y ondas, pero la hidratación y los ingredientes naturales benefician cualquier tipo de cabello. Si tienes pelo liso y quieres hidratación, también te va a funcionar.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item border border-edl-beige/50 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-edl-cream/30 transition-colors">
+          <span class="text-sm font-medium text-edl-dark">¿Cuánto dura el kit?</span>
+          <span class="faq-icon text-edl-muted transition-transform duration-300 text-lg">+</span>
+        </button>
+        <div class="faq-answer hidden px-5 pb-4">
+          <p class="text-sm text-edl-muted leading-relaxed">Aproximadamente 2-3 meses con uso regular (3 veces por semana). El leave-in es el que más rinde porque se usa en poca cantidad.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item border border-edl-beige/50 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-edl-cream/30 transition-colors">
+          <span class="text-sm font-medium text-edl-dark">¿Tiene devolución?</span>
+          <span class="faq-icon text-edl-muted transition-transform duration-300 text-lg">+</span>
+        </button>
+        <div class="faq-answer hidden px-5 pb-4">
+          <p class="text-sm text-edl-muted leading-relaxed">Sí, tienes 30 días para solicitar cambio o devolución si no estás satisfecha. Contáctanos por WhatsApp y lo resolvemos rápido.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item border border-edl-beige/50 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-edl-cream/30 transition-colors">
+          <span class="text-sm font-medium text-edl-dark">¿Cuánto tarda en llegar mi pedido?</span>
+          <span class="faq-icon text-edl-muted transition-transform duration-300 text-lg">+</span>
+        </button>
+        <div class="faq-answer hidden px-5 pb-4">
+          <p class="text-sm text-edl-muted leading-relaxed">Despachamos en 24-48 horas hábiles. Ciudades principales: 2-4 días. Resto del país: 4-7 días hábiles. Recibes tu guía de rastreo por correo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ==================== SECTION 9: STICKY CTA (Mobile) ==================== -->
+<div class="mb-4 max-w-6xl mx-auto px-6 pt-12">
+  <span class="section-label bg-edl-terracotta/10 text-edl-terracotta">Sección 9 — CTA sticky mobile (se ve fijo en scroll)</span>
+</div>
+ 
+<div class="max-w-md mx-auto px-6 pb-12">
+  <div class="bg-white border border-edl-beige rounded-2xl p-4 shadow-lg flex items-center gap-4">
+    <img src="product.png" alt="" class="w-14 h-14 object-cover rounded-lg bg-edl-cream">
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-semibold text-edl-dark truncate">Kit Wavy Edition</p>
+      <p class="text-sm text-edl-terracotta font-semibold">$164.700</p>
+    </div>
+    <button class="bg-edl-terracotta text-white font-semibold text-xs px-5 py-3 rounded-xl whitespace-nowrap hover:bg-edl-terracotta-dark transition-colors">
+      Agregar
+    </button>
+  </div>
+</div>
+ 
+ 
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-edl-dark text-white/70 py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="font-display text-xl text-white italic mb-4">everyday love</div>
+        <p class="text-xs leading-relaxed">Cuidado capilar con amor. Productos naturales hechos en Colombia para resaltar tu belleza natural.</p>
+      </div>
+      <div>
+        <p class="text-xs font-semibold text-white tracking-wider uppercase mb-3">Shop</p>
+        <div class="space-y-2 text-xs">
+          <a href="#" class="block hover:text-white transition-colors">Productos</a>
+          <a href="#" class="block hover:text-white transition-colors">Kits</a>
+          <a href="#" class="block hover:text-white transition-colors">Ofertas</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold text-white tracking-wider uppercase mb-3">Info</p>
+        <div class="space-y-2 text-xs">
+          <a href="#" class="block hover:text-white transition-colors">Nosotros</a>
+          <a href="#" class="block hover:text-white transition-colors">Envíos</a>
+          <a href="#" class="block hover:text-white transition-colors">Devoluciones</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold text-white tracking-wider uppercase mb-3">Síguenos</p>
+        <div class="space-y-2 text-xs">
+          <a href="#" class="block hover:text-white transition-colors">Instagram</a>
+          <a href="#" class="block hover:text-white transition-colors">TikTok</a>
+          <a href="#" class="block hover:text-white transition-colors">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[10px] text-white/40">© 2025 Everyday Love. Todos los derechos reservados.</p>
+      <p class="text-[10px] text-white/30">Propuesta de optimización — <span class="text-edl-terracotta-light">Uconex</span></p>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = !answer.classList.contains('hidden');
+  
+  // Close all
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+  document.querySelectorAll('.faq-icon').forEach(i => { i.textContent = '+'; i.style.transform = 'rotate(0)'; });
+  
+  if (!isOpen) {
+    answer.classList.remove('hidden');
+    icon.textContent = '−';
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+</script>
+ 
+</body>
+</html>
